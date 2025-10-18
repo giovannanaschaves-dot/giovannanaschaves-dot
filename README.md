@@ -7,6 +7,6 @@
 
 Estrutura do repositório
 
-/academicos -> Projetos acadêmicos
+/academicos -> Projetos acadêmicos  
 /pessoais -> Projetos pessoais
 
