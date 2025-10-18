@@ -5,4 +5,8 @@
   </a>
 </div>  
 
+Estrutura do repositório
+
+/academicos -> Projetos acadêmicos
+/pessoais -> Projetos pessoais
 
