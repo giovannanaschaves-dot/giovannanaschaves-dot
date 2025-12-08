@@ -1,4 +1,4 @@
-🪨📄✂️ Pedra, Papel ou Tesoura
+Pedra, Papel ou Tesoura
 Projeto Final — Introdução à Computação
 
 Este projeto consiste na implementação do clássico jogo Pedra, Papel ou Tesoura utilizando Python.
