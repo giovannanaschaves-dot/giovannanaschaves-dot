@@ -1,24 +1,57 @@
-// Giovanna Nascimento Chaves - Atividade avaliativa 16_03
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
+        double saldo = 500.0;
+        int opcao;
 
-        System.out.print("Digite um número: ");
-        int numero = scanner.nextInt();
+        do {
 
-        if (numero <= 0) {
-            System.out.println("Número inválido. Por favor, digite um número maior que zero.");
-            return;
-        }
+            System.out.println("\n===MENU===");
+            System.out.println("1 - Consultar Saldo");
+            System.out.println("2 - Realizar Depósito");
+            System.out.println("3 - Realizar Saque");
+            System.out.println("4 - Sair");
+            System.out.println("Escolha uma opção: ");
 
-        for (int i = 1; i <= 10; i++) {
-            int resultado = numero * i;
-            if(resultado % 2 == 0) {
-                System.out.println(numero + "x" + i + "=" + resultado + "(Par)");
-            } else {
-                System.out.println(numero + "x" + i + "=" + resultado + "(Ímpar)");   
-            }    
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Seu saldo é: R$ " + saldo);
+                    break;
+
+                case 2:
+                    System.out.print("Digite o valor para depósito: ");
+                    double deposito = scanner.nextDouble();
+
+                    if (deposito > 0) {
+                        saldo += deposito;
+                        System.out.println("Depósito realizado com sucesso!");
+                    } else {
+                        System.out.println("Valor inválido para depósito.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Digite o valor para saque: ");
+                    double saque = scanner.nextDouble();
+
+                    if (saque <= 0) {
+                        System.out.println("Valor inválido para saque.");
+                    } else if (saque > saldo) {
+                        System.out.println("Saldo insuficiente.");
+                    } else {
+                        saldo -= saque;
+                        System.out.println("Saque realizado com sucesso!");
+                    }
+                    break;
+
+                default:
+                    System.out.println("Opção inválida");
             }
-        }
+        } while (opcao != 4);
     }
+    
+}
