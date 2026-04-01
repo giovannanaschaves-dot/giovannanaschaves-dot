@@ -1,6 +1,24 @@
-# Pedra, Papel ou Tesoura
+# Pedra, Papel e Tesoura em Python
 
-Projeto Final — Introdução à Computação
+Aplicação desenvolvida em Python que simula o jogo Pedra, Papel e Tesoura com interação via terminal.
 
-Este projeto consiste na implementação do clássico jogo Pedra, Papel ou Tesoura utilizando Python.
-O usuário joga contra o computador, que escolhe sua jogada aleatoriamente com a biblioteca random.
+## 🚀 Tecnologias
+
+* Python
+
+## 📚 O que aprendi
+
+* Lógica condicional (if/else)
+* Estruturas de repetição
+* Manipulação de entrada do usuário
+* Geração de valores aleatórios
+* Organização básica de código em Python
+
+## ▶️ Como executar
+
+1. Certifique-se de ter o logar no Google Collab
+
+## 📌 Observações
+
+Projeto desenvolvido durante estudos de lógica de programação, com foco em prática de conceitos fundamentais.
+
