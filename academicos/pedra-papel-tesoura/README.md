@@ -16,7 +16,7 @@ Aplicação desenvolvida em Python que simula o jogo Pedra, Papel e Tesoura com 
 
 ## ▶️ Como executar
 
-1. Certifique-se de ter o logar no Google Collab
+1. Certifique-se de logar no Google Collab
 
 ## 📌 Observações
 
