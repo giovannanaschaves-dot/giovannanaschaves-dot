@@ -1,5 +1,3 @@
-# Hello world 👋
-
 # 👩‍💻 Giovanna Nascimento Chaves
 
 Estudante de Ciência da Computação em transição para a área de tecnologia, com foco em desenvolvimento de software e dados.
