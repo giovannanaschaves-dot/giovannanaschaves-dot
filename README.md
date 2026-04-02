@@ -1,6 +1,6 @@
 # 👩‍💻 Giovanna Nascimento Chaves
 
-Estudante de Ciência da Computação em transição para a área de tecnologia, com foco em desenvolvimento de software e dados.
+Estudante de Ciência da Computação com background em Marketing e Data Science, com foco em desenvolvimento de software e dados.
 
 ## 🚀 Tecnologias
 
