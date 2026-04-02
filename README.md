@@ -4,8 +4,6 @@
 
 Estudante de Ciência da Computação em transição para a área de tecnologia, com foco em desenvolvimento de software e dados.
 
----
-
 ## 🚀 Tecnologias
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
@@ -14,13 +12,9 @@ Estudante de Ciência da Computação em transição para a área de tecnologia,
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
 
----
-
 ## 🌐 Contato
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Giovanna%20Nascimento%20Chaves-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/giovanna-nascimento-chaves/)
-
----
 
 ## 📂 Estrutura do Repositório
 
@@ -41,8 +35,6 @@ Projetos desenvolvidos por iniciativa própria para:
 * aprofundar conhecimentos
 * testar novas ideias
 * evoluir tecnicamente
-
----
 
 ## 🎯 Objetivo
 
