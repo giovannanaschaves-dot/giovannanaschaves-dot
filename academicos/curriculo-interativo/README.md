@@ -4,8 +4,8 @@ Projeto de front-end desenvolvido com HTML e CSS com o objetivo de criar um curr
 
 ## 🚀 Tecnologias
 
-* HTML5
-* CSS3
+* HTML
+* CSS
 
 ## 📚 O que aprendi
 
