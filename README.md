@@ -14,6 +14,8 @@ Estudante de Ciência da Computação com background em Marketing e Data Science
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Giovanna%20Nascimento%20Chaves-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/giovanna-nascimento-chaves/)
 
+[![Email](https://img.shields.io/badge/Email-giovannanaschaves%40gmail.com-D14836?style=for-the-badge\&logo=gmail\&logoColor=white)](mailto:giovannanaschaves@gmail.com)
+
 ## 📂 Estrutura do Repositório
 
 Este repositório está organizado em duas áreas principais:
