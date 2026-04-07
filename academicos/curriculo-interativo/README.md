@@ -25,6 +25,4 @@ Projeto de front-end desenvolvido com HTML e CSS com o objetivo de criar um curr
 Este projeto foi desenvolvido como prática de front-end e tem como foco a criação de um currículo interativo, permitindo apresentar informações profissionais de forma mais dinâmica do que um currículo tradicional.
 
 
-🌐 [Acesse o projeto online](https://seuusuario.github.io/Projeto-Curriculo-Interativo/)  
-
 
