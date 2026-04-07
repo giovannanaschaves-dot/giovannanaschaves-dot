@@ -1,18 +1,19 @@
-/*CONFIGURAÇÃO GERAL*/
+/* CONFIGURAÇÃO GERAL */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff0f5;
+    background-color: #f5f5f5; /* fundo acinzentado */
     color: #3e2723;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-/*HEADER*/
+/* HEADER */
 header {
     background-color: #f4a6c1;
     padding: 25px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -20,7 +21,7 @@ header h1 {
     font-size: 32px;
 }
 
-/*NAV*/
+/* NAV */
 nav {
     margin-top: 15px;
 }
@@ -40,30 +41,36 @@ nav a:hover {
     background-color: #fff0f5;
 }
 
-/*SECTIONS*/
+/* SECTIONS */
 section {
     background-color: #ffffff;
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 30px;
     width: 85%;
     max-width: 850px;
     border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(62, 39, 35, 0.18);
+
+    /* destaque visual */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    /* borda rosa suave */
+    border: 2px solid #f4a6c1;
 }
 
-/*TITLES*/
+/* TÍTULOS */
 h2 {
     color: #6d4c41;
     text-align: center;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/*SOBRE*/
+/* SOBRE */
 #sobre p {
     text-align: center;
 }
 
-/*IMAGEM*/
+/* IMAGEM */
 img {
     display: block;
     margin: 20px auto;
@@ -72,26 +79,24 @@ img {
     box-shadow: 0 4px 10px rgba(62, 39, 35, 0.2);
 }
 
-/*LINKS PERFIL*/
-.link-destaque {
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: 2px solid #f4a6c1;
-    padding-bottom: 2px;
+/* LINKS PERFIL */
+.links-perfil {
+    text-align: center;
 }
 
-/*LISTAS GERAIS*/
+/* LISTAS GERAIS */
 ul {
     list-style: none;
     padding: 0;
 }
 
 li {
-    background-color: #fff0f5;
+    background-color: #fdf3f7; /* rosinha suave */
     padding: 15px;
     border-radius: 12px;
     margin-bottom: 15px;
-    box-shadow: 0 3px 8px rgba(62, 39, 35, 0.1);
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 li strong {
@@ -104,7 +109,7 @@ li span {
     color: #6d4c41;
 }
 
-/*LINKS*/
+/* LINKS */
 a {
     color: #6d4c41;
 }
@@ -113,8 +118,7 @@ a:hover {
     color: #3e2723;
 }
 
-/*LINGUAGENS*/
-
+/* LINGUAGENS (HORIZONTAL) */
 .linguagens-lista {
     display: flex;
     justify-content: center;
@@ -123,14 +127,13 @@ a:hover {
 }
 
 .linguagens-lista li {
-    background-color: #fff0f5;
+    background-color: #fdf3f7;
     padding: 12px 20px;
     border-radius: 20px;
     font-weight: bold;
 }
 
-/*HABILIDADES*/
-
+/* HABILIDADES (2 COLUNAS) */
 .habilidades-lista {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -141,7 +144,7 @@ a:hover {
     text-align: center;
 }
 
-/*FORMULÁRIO*/
+/* FORMULÁRIO */
 form {
     display: flex;
     flex-direction: column;
@@ -156,7 +159,7 @@ input,
 textarea {
     margin-bottom: 15px;
     padding: 12px;
-    border: 1px solid #f4a6c1;
+    border: 1px solid #d8a7b5;
     border-radius: 10px;
     font-size: 14px;
     font-family: Arial, sans-serif;
@@ -168,7 +171,7 @@ textarea:focus {
     border: 2px solid #f4a6c1;
 }
 
-/*BOTÃO*/
+/* BOTÃO */
 button {
     background-color: #3e2723;
     color: white;
@@ -184,12 +187,13 @@ button:hover {
     background-color: #6d4c41;
 }
 
-/*FOOTER*/
+/* FOOTER */
 footer {
     background-color: #f4a6c1;
     text-align: center;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 40px;
     color: #3e2723;
     font-weight: bold;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
 }
