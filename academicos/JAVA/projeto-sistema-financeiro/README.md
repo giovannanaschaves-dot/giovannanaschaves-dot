@@ -37,3 +37,35 @@ projeto-poo/
 │       ├── Validador.java
 │       └── Formatador.java
 └── README.md
+
+## 🔹 Funcionalidades
+
+### Transações
+* Adicionar receitas, despesas e investimentos
+* Listar todas as transações ou filtrar por tipo
+* Atualizar dados de uma transação existente
+* Remover transações pelo ID
+* Calcular saldo atual com base no impacto de cada transação
+
+### Metas Financeiras
+* Criar metas com nome, valor alvo e descrição
+* Listar todas as metas com progresso em porcentagem
+* Depositar valores em uma meta
+* Atualizar dados da meta
+* Remover metas pelo ID
+
+## ▶️ Como executar
+
+1. Acesse a pasta do projeto no terminal
+
+2. Compile os arquivos:
+
+javac -d bin financeiro/util/Validador.java financeiro/util/Formatador.java financeiro/model/Transacao.java financeiro/model/Meta.java financeiro/model/tipos/Receita.java financeiro/model/tipos/Despesa.java financeiro/model/tipos/Investimento.java financeiro/service/TransacaoService.java financeiro/service/MetaService.java financeiro/Main.java
+
+3. Execute:
+
+java -cp bin financeiro.Main
+
+## 📌 Observações
+
+O projeto foi desenvolvido durante a disciplina de Programação Orientada a Objetos, com foco na aplicação prática dos pilares da orientação a objetos em Java por meio de um sistema financeiro funcional com menu interativo via terminal.
