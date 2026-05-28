@@ -1,0 +1,193 @@
+/*Variáveis do tema escuro*/
+:root{
+  --bg:#0b0c10;
+  --card:#111319;
+  --text:#e9edf1;
+  --muted:#a7b0bf;
+  --brand:#6ea8fe;
+  --brand-2:#a78bfa;
+  --accent:#2dd4bf;
+  --shadow:0 10px 30px rgba(0,0,0,.3);
+  --radius:16px;
+  --gap:16px;
+  --ring:0 0 0 2px rgba(110,168,254,.3);
+
+  /*Bordas, divisores e superfícies*/
+  --border:  rgba(255,255,255,.12);
+  --divider: rgba(255,255,255,.18);
+  --surface: rgba(255,255,255,.04);
+  --chip-bg: rgba(255,255,255,.06);
+}
+
+/*Variáveis do tema claro*/
+#themeLight:checked ~ main{
+  --bg:#f3f4f6;
+  --card:#ffffff;
+  --text:#111111;
+  --muted:#374151;
+  --brand:#2563eb;
+  --brand-2:#9333ea;
+  --accent:#059669;
+  --shadow:0 8px 28px rgba(0,0,0,.08);
+  --ring:0 0 0 2px rgba(37,99,235,.25);
+
+  --border:  rgba(17,24,39,.14);
+  --divider: rgba(17,24,39,.25);
+  --surface: rgba(17,24,39,.03);
+  --chip-bg: rgba(17,24,39,.05);
+}
+
+/*Estrutura*/
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg);
+  font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+}
+
+main{
+  color: var(--text);
+  min-height:100%;
+  display:grid;
+  grid-template-columns:1fr;
+  padding:clamp(16px,3vw,32px);
+  transition:background .3s ease,color .3s ease;
+}
+
+.container{
+  max-width:1100px; margin:0 auto;
+  display:grid; gap:var(--gap);
+  grid-template-columns:320px 1fr;
+}
+@media (max-width:960px){ .container{ grid-template-columns:1fr } }
+
+.card{ background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow) }
+
+/*Barra de ferramentas*/
+.toolbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin:0 auto 16px; max-width:1100px;
+}
+.toolbar .left{ display:flex; gap:8px; align-items:center }
+
+/*Título*/
+.pill{
+  padding:8px 12px; border-radius:999px; background:var(--surface);
+  border:1px solid var(--border); color:var(--text);
+  font-weight:700; font-size: 30px;
+}
+
+/* Botões da direita*/
+.actions{ display:flex; gap:10px; align-items:center }
+.btn{
+  border:1px solid var(--border);
+  cursor:pointer; font-weight:700; letter-spacing:.2px;
+  padding:12px 16px; min-width:170px; border-radius:12px;
+  background:transparent; color:var(--text); box-shadow:var(--shadow);
+  transition:transform .07s ease,filter .2s ease;
+}
+.btn:active{ transform:translateY(1px) }
+label.btn.translate{ display:inline-flex; align-items:center; justify-content:center }
+
+/*Botões de tema*/
+#themeLight,#themeDark,#langToggle{ position:absolute; opacity:0; pointer-events:none }
+
+.theme-bar{
+  max-width:1100px; margin:12px auto 18px;
+  display:flex; gap:12px; justify-content:center; padding:0 16px;
+}
+.btn-theme{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:90px; padding:6px 12px; border-radius:14px; font-weight:800;
+  border:1px solid rgba(255,255,255,.14); box-shadow:var(--shadow);
+  transition:transform .04s ease,background .2s ease;
+}
+.btn-theme:active{ transform:translateY(1px) }
+.btn-theme.dark{ background:#000; color:#fff; border-color:#000 }
+.btn-theme.light{ background:#fff; color:#111; border-color:#e5e7eb }
+
+#themeLight:checked ~ .theme-bar label[for="themeLight"],
+#themeDark:checked  ~ .theme-bar label[for="themeDark"]{
+  outline:2px solid currentColor; outline-offset:2px;
+}
+
+/*Lateral*/
+aside{ display:grid; gap:var(--gap) }
+.profile{ padding:22px; display:grid; gap:12px }
+.profile h1{ font-size:clamp(24px,3.4vw,36px); margin:0; line-height:1.1 }
+.profile .subtitle{ color:var(--muted); margin-top:-4px }
+.contact{ display:grid; gap:8px; margin-top:8px }
+.contact a{ color:var(--accent); text-decoration:none }
+
+.skills{ padding:18px 18px 12px }
+.skills h2,.section h2{
+  margin:0 0 8px; font-size:18px; letter-spacing:.4px; color:var(--muted);
+  text-transform:uppercase;
+}
+
+.chips{ display:flex; flex-direction:column; gap:10px }
+.chip{
+  display:block; padding:8px 10px; border-radius:10px;
+  background: var(--chip-bg); border:1px solid var(--border); font-weight:600;
+}
+
+aside .skills:nth-of-type(2) .chip{
+  background:transparent; border:none; padding:4px 0; font-weight:700;
+}
+
+/*Principal*/
+section.section{ padding:22px }
+.section + .section{ margin-top:var(--gap) }
+
+.item{
+  padding:14px 0;
+  border-bottom:1px dashed var(--divider);
+}
+.item:last-child{ border:0 }
+.item h3{ margin:0 0 6px; font-size:18px }
+.meta{ color:var(--muted); font-size:14px }
+ul.tasks{ margin:8px 0 0 18px }
+
+details{
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: var(--surface);
+}
+details + details{ margin-top:10px }
+summary{ cursor:pointer; padding:14px 16px; list-style:none; font-weight:700 }
+summary::-webkit-details-marker{ display:none }
+details[open]{ box-shadow:var(--ring) }
+details .content{ padding:0 16px 14px }
+
+/*PT/EN*/
+.pt { display:initial; }    
+.en { display:none; }        
+
+#langToggle:checked ~ main .pt { display:none; }
+#langToggle:checked ~ main .en { display:initial; }
+
+/*Título e botão de imprimir*/
+.toolbar .en { display:none; }
+#langToggle:checked ~ .toolbar .pt { display:none; }
+#langToggle:checked ~ .toolbar .en { display:inline; }
+
+/*Botões de tema*/
+.theme-bar .en { display:none; }
+#langToggle:checked ~ .theme-bar .pt { display:none; }
+#langToggle:checked ~ .theme-bar .en { display:inline; }
+
+/*Impressão*/
+@media print{
+  .pt, .en { display:none !important; }
+  #langToggle:checked ~ main .en { display:block !important; }
+  #themeDark:checked ~ main .pt,
+  #themeLight:checked ~ main .pt { display:block !important; }
+
+  body{ background:#fff; color:#000 }
+  .theme-bar,.toolbar{ display:none !important }
+  .card{ box-shadow:none; border:1px solid #e5e7eb }
+  a{ color:#000; text-decoration:none }
+}
+
+
+  
+  

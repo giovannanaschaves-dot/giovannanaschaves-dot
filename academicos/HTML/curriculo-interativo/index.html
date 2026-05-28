@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Currículo – Giovanna Nascimento Chaves</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!--Controles-->
+  <input type="radio" name="theme" id="themeLight" hidden>
+  <input type="radio" name="theme" id="themeDark" hidden checked>
+  <input type="checkbox" id="langToggle" hidden>
+
+  <!--Botões tema-->
+  <div class="theme-bar">
+    <label for="themeDark" class="btn-theme dark">
+      <span class="pt">Modo Escuro</span>
+      <span class="en">Dark Mode</span>
+    </label>
+    <label for="themeLight" class="btn-theme light">
+      <span class="pt">Modo Claro</span>
+      <span class="en">Light Mode</span>
+    </label>
+  </div>
+
+  <!--Barra de ferramentas-->
+  <div class="toolbar">
+    <div class="left">
+      <span class="pill">
+        <span class="pt">Currículo Interativo</span>
+        <span class="en">Interactive Résumé</span>
+      </span>
+    </div>
+    <div class="right actions">
+      <button class="btn" onclick="window.print()">
+        <span class="pt">Imprimir / Salvar PDF</span>
+        <span class="en">Print / Save PDF</span>
+      </button>
+      <label for="langToggle" class="btn translate">
+        <span class="pt">English Version</span>
+        <span class="en">Versão Português</span>
+      </label>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <aside>
+        <!--Perfil-->
+        <div class="card profile">
+          <h1>
+            <span class="pt">Giovanna Nascimento Chaves</span>
+            <span class="en">Giovanna Nascimento Chaves</span>
+          </h1>
+
+          <p class="subtitle">
+            <span class="pt">Marketing, Data Science & Fut. Eng. de Software</span>
+            <span class="en">Marketing, Data Science & Future Software Engineer</span>
+          </p>
+
+          <div class="contact">
+            <span class="pt">📍 Brasília – DF</span>
+            <span class="en">📍 Brasília – DF, Brazil</span>
+
+            <a href="tel:+5561999709902">
+              <span class="pt">📞 (61) 99970-9902</span>
+              <span class="en">📞 +55 (61) 99970-9902</span>
+            </a>
+
+            <a href="mailto:giovannanaschaves@gmail.com">
+              <span class="pt">✉️ giovannanaschaves@gmail.com</span>
+              <span class="en">✉️ giovannanaschaves@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <!--Habilidades-->
+        <div class="card skills">
+          <h2>
+            <span class="pt">Habilidades</span>
+            <span class="en">Skills</span>
+          </h2>
+          <div class="chips">
+            <span class="chip"><span class="pt">Copywriting</span><span class="en">Copywriting</span></span>
+            <span class="chip"><span class="pt">WordPress & Elementor</span><span class="en">WordPress & Elementor</span></span>
+            <span class="chip"><span class="pt">Design (Canva avançado)</span><span class="en">Design (Advanced Canva)</span></span>
+            <span class="chip"><span class="pt">Python & C (básico)</span><span class="en">Python & C (basic)</span></span>
+            <span class="chip"><span class="pt">HTML & CSS</span><span class="en">HTML & CSS</span></span>
+            <span class="chip"><span class="pt">Meta Ads</span><span class="en">Meta Ads</span></span>
+            <span class="chip"><span class="pt">Power BI / Power Query</span><span class="en">Power BI / Power Query</span></span>
+            <span class="chip"><span class="pt">Planejamento de Marketing</span><span class="en">Marketing Planning</span></span>
+            <span class="chip"><span class="pt">Análise Estratégica</span><span class="en">Strategic Analysis</span></span>
+            <span class="chip"><span class="pt">Administração Empresarial</span><span class="en">Business Administration</span></span>
+            <span class="chip"><span class="pt">Produção de Conteúdo</span><span class="en">Content Production</span></span>
+            <span class="chip"><span class="pt">Autodidatismo</span><span class="en">Self-learning</span></span>
+          </div>
+        </div>
+
+        <!--Idiomas-->
+        <div class="card skills">
+          <h2>
+            <span class="pt">Idiomas</span>
+            <span class="en">Languages</span>
+          </h2>
+          <div class="chips">
+            <span class="chip"><span class="pt">Português – 1ª língua</span><span class="en">Portuguese – Native</span></span>
+            <span class="chip"><span class="pt">Inglês – Fluente</span><span class="en">English – Fluent</span></span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="stack">
+        <!--Formação Acadêmica-->
+        <section class="card section">
+          <h2>
+            <span class="pt">Formação Acadêmica</span>
+            <span class="en">Education</span>
+          </h2>
+
+          <div class="item">
+            <h3>
+              <span class="pt">UNICEUB – Marketing e Data Science</span>
+              <span class="en">UNICEUB – Marketing and Data Science</span>
+            </h3>
+            <div class="meta">
+              <span class="pt">Conclusão: 06/2025</span>
+              <span class="en">Graduation: 06/2025</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>
+              <span class="pt">UNICEUB – Ciência da Computação</span>
+              <span class="en">UNICEUB – Computer Science</span>
+            </h3>
+            <div class="meta">
+              <span class="pt">Conclusão: 06/2029</span>
+              <span class="en">Graduation: 06/2029</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>
+              <span class="pt">Curso presencial de Tráfego Pago – Matheus Zappiello</span>
+              <span class="en">In-person Paid Traffic Course – Matheus Zappiello</span>
+            </h3>
+            <div class="meta">
+              <span class="pt">Conclusão: 05/2024</span>
+              <span class="en">Completion: 05/2024</span>
+            </div>
+          </div>
+        </section>
+
+        <!--Experiência Profissional-->
+        <section class="card section">
+          <h2>
+            <span class="pt">Experiência Profissional</span>
+            <span class="en">Professional Experience</span>
+          </h2>
+
+          <details open>
+            <summary>
+              <span class="pt">ABEMIL Brasil – Estagiária de Marketing <span class="meta">(07/2024 – 12/2024)</span></span>
+              <span class="en">ABEMIL Brazil – Marketing Intern <span class="meta">(07/2024 – 12/2024)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Construção e edição de sites.</span><span class="en">Website building and editing.</span></li>
+                <li><span class="pt">Criação de estratégias de marketing.</span><span class="en">Creation of marketing strategies.</span></li>
+                <li><span class="pt">Edição de vídeos e fotografia.</span><span class="en">Video editing and photography.</span></li>
+                <li><span class="pt">Planejamento administrativo e comunicação integrada.</span><span class="en">Administrative planning and integrated communications.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="pt">Equilíbrium Psicologia – Social Media <span class="meta">(01/2024 – 07/2024)</span></span>
+              <span class="en">Equilíbrium Psicologia – Social Media <span class="meta">(01/2024 – 07/2024)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Construção e edição de sites.</span><span class="en">Website building and editing.</span></li>
+                <li><span class="pt">Estratégias de marketing.</span><span class="en">Marketing strategies.</span></li>
+                <li><span class="pt">Edição de vídeos, fotografia.</span><span class="en">Video editing and photography.</span></li>
+                <li><span class="pt">Planejamento administrativo e comunicação integrada.</span><span class="en">Administrative planning and integrated communications.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="pt">TECNA Construtora – Estagiária de Marketing <span class="meta">(07/2023 – 12/2023)</span></span>
+              <span class="en">TECNA Construtora – Marketing Intern <span class="meta">(07/2023 – 12/2023)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Planejamento de estratégias de marketing.</span><span class="en">Planning of marketing strategies.</span></li>
+                <li><span class="pt">Edição de vídeos e fotografia.</span><span class="en">Video editing and photography.</span></li>
+                <li><span class="pt">Fechamento de contratos e liderança de equipe.</span><span class="en">Contract closing and team leadership.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="pt">Brownies da Lari – Social Media <span class="meta">(04/2022 – 07/2022)</span></span>
+              <span class="en">Brownies da Lari – Social Media <span class="meta">(04/2022 – 07/2022)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Atendimento ao público.</span><span class="en">Customer service.</span></li>
+                <li><span class="pt">Produção e planejamento de conteúdo.</span><span class="en">Content production and planning.</span></li>
+                <li><span class="pt">Construção e organização das redes sociais.</span><span class="en">Building and organizing social media.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="pt">Escola de Samba Unidos do Jardim Botânico – Social Media <span class="meta">(12/2021 – 05/2022)</span></span>
+              <span class="en">Escola de Samba Unidos do Jardim Botânico – Social Media <span class="meta">(12/2021 – 05/2022)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Atendimento ao público.</span><span class="en">Customer service.</span></li>
+                <li><span class="pt">Produção e planejamento de conteúdo.</span><span class="en">Content production and planning.</span></li>
+                <li><span class="pt">Construção e organização das redes sociais.</span><span class="en">Building and organizing social media.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="pt">GioGio Company – Representante Legal <span class="meta">(02/2021 – 12/2021)</span></span>
+              <span class="en">GioGio Company – Legal Representative <span class="meta">(02/2021 – 12/2021)</span></span>
+            </summary>
+            <div class="content">
+              <ul class="tasks">
+                <li><span class="pt">Atendimento ao público e infoprodução.</span><span class="en">Customer service and info-product creation.</span></li>
+                <li><span class="pt">Produção e planejamento de conteúdo.</span><span class="en">Content production and planning.</span></li>
+                <li><span class="pt">Organização de equipe e redes sociais.</span><span class="en">Team and social media organization.</span></li>
+              </ul>
+            </div>
+          </details>
+        </section>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+
+
+    
+
+
