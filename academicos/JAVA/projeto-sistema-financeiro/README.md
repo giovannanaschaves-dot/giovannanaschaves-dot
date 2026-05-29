@@ -1,4 +1,4 @@
-# FinanceiroApp - Sistema de Gerenciamento de Finanças Pessoais (Java)
+# FinanceiroApp - Sistema de Gerenciamento de Finanças Pessoais
 
 Sistema de controle financeiro pessoal desenvolvido em Java com o objetivo de praticar conceitos de Programação Orientada a Objetos, aplicando herança, polimorfismo, encapsulamento e abstração em um sistema CRUD funcional via linha de comando.
 
