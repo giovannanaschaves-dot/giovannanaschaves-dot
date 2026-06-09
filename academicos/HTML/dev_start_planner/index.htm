@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DevStart Planner — Organize seus estudos, metas e projetos de desenvolvimento." />
+  <title>DevStart Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- SKIP LINK — acessibilidade -->
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <!-- ==========================================
+       HEADER / NAVEGAÇÃO
+  ========================================== -->
+  <header>
+    <nav aria-label="Navegação principal">
+
+      <a href="#home" class="nav__logo" aria-label="DevStart Planner — Página inicial">
+        ⚡ DevStart<span>Planner</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+      </ul>
+
+      <div class="nav__acoes">
+        <button id="btn-tema" aria-label="Ativar modo escuro">🌙</button>
+        <a href="#dashboard" class="btn btn-primario">Começar</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- ==========================================
+       MAIN
+  ========================================== -->
+  <main id="conteudo-principal">
+
+
+    <!-- ========================================
+         1. HOME — HERO
+    ======================================== -->
+    <section id="home" aria-labelledby="titulo-hero">
+      <div class="hero__conteudo">
+
+        <span class="hero__badge">🚀 Para iniciantes em tecnologia</span>
+
+        <h1 id="titulo-hero">
+          Organize seus estudos de <em>programação</em> do jeito certo
+        </h1>
+
+        <p class="hero__desc">
+          O <strong>DevStart Planner</strong> é uma plataforma feita para estudantes
+          iniciantes em tecnologia. Crie checklists, acompanhe seu roadmap e gerencie
+          seus projetos em um só lugar.
+        </p>
+
+        <div class="hero__acoes">
+          <a href="#dashboard" class="btn btn-primario">🎯 Começar agora</a>
+          <a href="#roadmap"   class="btn btn-secundario">Ver Roadmap</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         2. DASHBOARD
+    ======================================== -->
+    <section id="dashboard" aria-labelledby="titulo-dashboard">
+
+      <div class="secao__cabecalho">
+        <span class="secao__tag">📊 Painel</span>
+        <h2 id="titulo-dashboard">Dashboard</h2>
+        <p class="secao__subtitulo">Acompanhe suas metas, progresso e resumo semanal de estudos.</p>
+      </div>
+
+      <div class="dashboard-grid">
+
+        <!-- Card: Meta da semana -->
+        <article class="card card-meta" aria-label="Meta da semana">
+          <h3 class="card__titulo">🎯 Meta da semana</h3>
+
+          <form id="form-meta" aria-label="Definir meta da semana">
+            <label for="input-meta">Qual é sua meta desta semana?</label>
+            <input
+              type="text"
+              id="input-meta"
+              name="meta"
+              placeholder="Ex: Concluir o módulo de HTML e CSS"
+              maxlength="120"
+              aria-required="true"
+            />
+            <label for="input-prazo">Prazo:</label>
+            <input
+              type="date"
+              id="input-prazo"
+              name="prazo"
+              aria-required="true"
+            />
+            <button type="submit" id="btn-salvar-meta" class="btn btn-primario">Salvar meta</button>
+          </form>
+
+          <div id="meta-salva" aria-live="polite" aria-atomic="true" hidden>
+            <p id="meta-texto" class="meta__texto"></p>
+            <p id="meta-prazo" class="meta__prazo"></p>
+            <button id="btn-editar-meta" class="btn btn-secundario btn-sm" aria-label="Editar meta da semana">✏️ Editar</button>
+          </div>
+
+          <div class="barra-wrap" aria-label="Progresso geral">
+            <div class="barra-wrap__cabecalho">
+              <span>Progresso geral das tarefas</span>
+              <span id="pct-progresso-geral">0%</span>
+            </div>
+            <div class="barra-trilha" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso geral">
+              <div class="barra-fill barra-fill--gradiente" id="fill-progresso-geral"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card: Tarefas -->
+        <article class="card card-stat" aria-label="Tarefas concluídas hoje">
+          <div class="card-stat__icone card-stat__icone--roxo" aria-hidden="true">✅</div>
+          <p class="card__label">Tarefas concluídas</p>
+          <p class="card__valor" id="contagem-tarefas-dashboard">0 / 0</p>
+          <p class="card__sub">Hoje</p>
+        </article>
+
+        <!-- Card: Tópicos -->
+        <article class="card card-stat" aria-label="Tópicos estudados no roadmap">
+          <div class="card-stat__icone card-stat__icone--laranja" aria-hidden="true">📖</div>
+          <p class="card__label">Tópicos estudados</p>
+          <p class="card__valor" id="contagem-topicos-dashboard">0 / 20</p>
+          <p class="card__sub">No roadmap total</p>
+        </article>
+
+        <!-- Card: Projetos -->
+        <article class="card card-stat" aria-label="Projetos cadastrados">
+          <div class="card-stat__icone card-stat__icone--verde" aria-hidden="true">💼</div>
+          <p class="card__label">Projetos cadastrados</p>
+          <p class="card__valor" id="contagem-projetos-dashboard">0</p>
+          <p class="card__sub">No total</p>
+        </article>
+
+        <!-- Card: Resumo por área -->
+        <article class="card card-resumo" aria-label="Resumo de progresso por área de estudo">
+          <h3 class="card__titulo">📚 Progresso por área</h3>
+          <ul id="resumo-roadmap" aria-label="Progresso por área de estudo">
+            <li>
+              <span>Lógica de Programação</span>
+              <div class="resumo-barra">
+                <div class="barra-trilha barra-trilha--sm">
+                  <div class="barra-fill" id="fill-logica" style="background:var(--roxo)"></div>
+                </div>
+                <span id="pct-logica" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Lógica">0%</span>
+              </div>
+            </li>
+            <li>
+              <span>P. Orientada a Objetos</span>
+              <div class="resumo-barra">
+                <div class="barra-trilha barra-trilha--sm">
+                  <div class="barra-fill" id="fill-poo" style="background:var(--laranja)"></div>
+                </div>
+                <span id="pct-poo" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em POO">0%</span>
+              </div>
+            </li>
+            <li>
+              <span>Dev de Interfaces</span>
+              <div class="resumo-barra">
+                <div class="barra-trilha barra-trilha--sm">
+                  <div class="barra-fill" id="fill-interfaces" style="background:var(--verde)"></div>
+                </div>
+                <span id="pct-interfaces" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Interfaces">0%</span>
+              </div>
+            </li>
+            <li>
+              <span>Banco de Dados</span>
+              <div class="resumo-barra">
+                <div class="barra-trilha barra-trilha--sm">
+                  <div class="barra-fill" id="fill-banco" style="background:var(--azul)"></div>
+                </div>
+                <span id="pct-banco" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Banco de Dados">0%</span>
+              </div>
+            </li>
+            <li>
+              <span>Git e GitHub</span>
+              <div class="resumo-barra">
+                <div class="barra-trilha barra-trilha--sm">
+                  <div class="barra-fill" id="fill-git" style="background:var(--rosa)"></div>
+                </div>
+                <span id="pct-git" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Git">0%</span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         3. CHECKLIST DIÁRIO
+    ======================================== -->
+    <section id="checklist" aria-labelledby="titulo-checklist">
+
+      <div class="secao__cabecalho">
+        <span class="secao__tag">✅ Tarefas</span>
+        <h2 id="titulo-checklist">Checklist Diário</h2>
+        <p class="secao__subtitulo">Adicione e marque suas tarefas do dia conforme avança nos estudos.</p>
+      </div>
+
+      <div class="checklist-layout">
+
+        <!-- Painel de progresso -->
+        <div class="checklist-progresso card" aria-label="Progresso do checklist diário">
+          <p class="card__label">Concluídas hoje</p>
+          <p class="checklist-progresso__numero" id="progresso-contagem" aria-live="polite" aria-atomic="true">0 / 0</p>
+
+          <div class="barra-wrap">
+            <div class="barra-wrap__cabecalho">
+              <span>Progresso</span>
+              <span id="progresso-pct">0%</span>
+            </div>
+            <div class="barra-trilha" id="barra-checklist" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Percentual de tarefas concluídas">
+              <div class="barra-fill barra-fill--gradiente" id="fill-checklist"></div>
+            </div>
+          </div>
+
+          <p class="card__sub" style="margin-top: 1rem;">Continue assim! Cada tarefa concluída é um passo na sua jornada dev. 💪</p>
+        </div>
+
+        <!-- Lista + formulário -->
+        <div class="checklist-conteudo">
+
+          <p id="msg-checklist-vazio" class="msg-vazia" aria-live="polite">
+            Nenhuma tarefa ainda. Adicione sua primeira tarefa abaixo! 📝
+          </p>
+
+          <ul id="lista-tarefas" aria-label="Lista de tarefas diárias" aria-live="polite"></ul>
+
+          <!-- Formulário de nova tarefa -->
+          <div class="form-nova-tarefa" role="group" aria-label="Adicionar nova tarefa">
+            <div class="form-nova-tarefa__linha">
+              <label for="nova-tarefa" class="sr-only">Nova tarefa</label>
+              <input
+                type="text"
+                id="nova-tarefa"
+                placeholder="Ex: Estudar Flexbox no CSS"
+                maxlength="80"
+                aria-label="Digite o nome da nova tarefa"
+              />
+              <label for="categoria-tarefa" class="sr-only">Categoria</label>
+              <select id="categoria-tarefa" aria-label="Selecione a categoria">
+                <option value="">Categoria</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JS">JavaScript</option>
+                <option value="Git">Git</option>
+                <option value="Lógica">Lógica</option>
+                <option value="POO">POO</option>
+                <option value="BD">Banco de Dados</option>
+                <option value="Outro">Outro</option>
+              </select>
+              <button id="btn-adicionar-tarefa" class="btn btn-laranja" aria-label="Adicionar tarefa">+ Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         4. ROADMAP DE ESTUDOS
+    ======================================== -->
+    <section id="roadmap" aria-labelledby="titulo-roadmap">
+
+      <div class="secao__cabecalho">
+        <span class="secao__tag">🗺️ Caminho</span>
+        <h2 id="titulo-roadmap">Roadmap de Estudos</h2>
+        <p class="secao__subtitulo">Marque os tópicos que você já estudou e acompanhe sua evolução.</p>
+      </div>
+
+      <div class="roadmap-grid">
+
+        <!-- Lógica de Programação -->
+        <article class="card roadmap-card" aria-labelledby="titulo-logica" data-area="logica">
+          <h3 id="titulo-logica" class="roadmap-card__titulo">🧠 Lógica de Programação</h3>
+          <p class="roadmap-card__progresso" id="progresso-logica" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Lógica">0 / 4 concluídos</p>
+          <div class="barra-trilha barra-trilha--sm roadmap-card__barra">
+            <div class="barra-fill" id="fill-roadmap-logica" style="background: var(--roxo)"></div>
+          </div>
+          <ul aria-label="Tópicos de Lógica de Programação">
+            <li><input type="checkbox" id="logica-1" data-area="logica" /><label for="logica-1">Variáveis</label></li>
+            <li><input type="checkbox" id="logica-2" data-area="logica" /><label for="logica-2">Condicionais</label></li>
+            <li><input type="checkbox" id="logica-3" data-area="logica" /><label for="logica-3">Laços de repetição</label></li>
+            <li><input type="checkbox" id="logica-4" data-area="logica" /><label for="logica-4">Funções</label></li>
+          </ul>
+        </article>
+
+        <!-- POO -->
+        <article class="card roadmap-card" aria-labelledby="titulo-poo" data-area="poo">
+          <h3 id="titulo-poo" class="roadmap-card__titulo">📦 P. Orientada a Objetos</h3>
+          <p class="roadmap-card__progresso" id="progresso-poo" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em POO">0 / 4 concluídos</p>
+          <div class="barra-trilha barra-trilha--sm roadmap-card__barra">
+            <div class="barra-fill" id="fill-roadmap-poo" style="background: var(--laranja)"></div>
+          </div>
+          <ul aria-label="Tópicos de POO">
+            <li><input type="checkbox" id="poo-1" data-area="poo" /><label for="poo-1">Classes</label></li>
+            <li><input type="checkbox" id="poo-2" data-area="poo" /><label for="poo-2">Objetos</label></li>
+            <li><input type="checkbox" id="poo-3" data-area="poo" /><label for="poo-3">Herança</label></li>
+            <li><input type="checkbox" id="poo-4" data-area="poo" /><label for="poo-4">Encapsulamento</label></li>
+          </ul>
+        </article>
+
+        <!-- Dev de Interfaces -->
+        <article class="card roadmap-card" aria-labelledby="titulo-interfaces" data-area="interfaces">
+          <h3 id="titulo-interfaces" class="roadmap-card__titulo">🖥️ Dev de Interfaces</h3>
+          <p class="roadmap-card__progresso" id="progresso-interfaces" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Interfaces">0 / 4 concluídos</p>
+          <div class="barra-trilha barra-trilha--sm roadmap-card__barra">
+            <div class="barra-fill" id="fill-roadmap-interfaces" style="background: var(--verde)"></div>
+          </div>
+          <ul aria-label="Tópicos de Dev de Interfaces">
+            <li><input type="checkbox" id="interfaces-1" data-area="interfaces" /><label for="interfaces-1">HTML</label></li>
+            <li><input type="checkbox" id="interfaces-2" data-area="interfaces" /><label for="interfaces-2">CSS</label></li>
+            <li><input type="checkbox" id="interfaces-3" data-area="interfaces" /><label for="interfaces-3">JavaScript</label></li>
+            <li><input type="checkbox" id="interfaces-4" data-area="interfaces" /><label for="interfaces-4">Responsividade</label></li>
+          </ul>
+        </article>
+
+        <!-- Banco de Dados -->
+        <article class="card roadmap-card" aria-labelledby="titulo-banco" data-area="banco">
+          <h3 id="titulo-banco" class="roadmap-card__titulo">🗄️ Banco de Dados</h3>
+          <p class="roadmap-card__progresso" id="progresso-banco" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Banco de Dados">0 / 4 concluídos</p>
+          <div class="barra-trilha barra-trilha--sm roadmap-card__barra">
+            <div class="barra-fill" id="fill-roadmap-banco" style="background: var(--azul)"></div>
+          </div>
+          <ul aria-label="Tópicos de Banco de Dados">
+            <li><input type="checkbox" id="banco-1" data-area="banco" /><label for="banco-1">Modelagem</label></li>
+            <li><input type="checkbox" id="banco-2" data-area="banco" /><label for="banco-2">SQL</label></li>
+            <li><input type="checkbox" id="banco-3" data-area="banco" /><label for="banco-3">CRUD</label></li>
+            <li><input type="checkbox" id="banco-4" data-area="banco" /><label for="banco-4">Relacionamentos</label></li>
+          </ul>
+        </article>
+
+        <!-- Git e GitHub -->
+        <article class="card roadmap-card" aria-labelledby="titulo-git" data-area="git">
+          <h3 id="titulo-git" class="roadmap-card__titulo">🔀 Git e GitHub</h3>
+          <p class="roadmap-card__progresso" id="progresso-git" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso em Git">0 / 4 concluídos</p>
+          <div class="barra-trilha barra-trilha--sm roadmap-card__barra">
+            <div class="barra-fill" id="fill-roadmap-git" style="background: var(--rosa)"></div>
+          </div>
+          <ul aria-label="Tópicos de Git e GitHub">
+            <li><input type="checkbox" id="git-1" data-area="git" /><label for="git-1">Git Init</label></li>
+            <li><input type="checkbox" id="git-2" data-area="git" /><label for="git-2">Commit</label></li>
+            <li><input type="checkbox" id="git-3" data-area="git" /><label for="git-3">Branches</label></li>
+            <li><input type="checkbox" id="git-4" data-area="git" /><label for="git-4">Push/Pull</label></li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         5. PROJETOS
+    ======================================== -->
+    <section id="projetos" aria-labelledby="titulo-projetos">
+
+      <div class="secao__cabecalho">
+        <span class="secao__tag">💼 Portfólio</span>
+        <h2 id="titulo-projetos">Meus Projetos</h2>
+        <p class="secao__subtitulo">Cadastre e acompanhe o status dos seus projetos pessoais.</p>
+      </div>
+
+      <p id="msg-projetos-vazio" class="msg-vazia" aria-live="polite">
+        Nenhum projeto cadastrado ainda. Adicione seu primeiro projeto abaixo! 💼
+      </p>
+
+      <div id="lista-projetos" aria-label="Lista de projetos cadastrados" aria-live="polite"></div>
+
+      <!-- Formulário de novo projeto -->
+      <form id="form-projeto" class="form-projeto" aria-label="Cadastrar novo projeto">
+        <fieldset>
+          <legend>➕ Novo projeto</legend>
+
+          <div class="form-projeto__grid">
+
+            <div class="form-grupo">
+              <label for="projeto-nome">Nome do projeto</label>
+              <input type="text" id="projeto-nome" name="nome" placeholder="Ex: Calculadora Web" maxlength="60" aria-required="true" />
+            </div>
+
+            <div class="form-grupo">
+              <label for="projeto-status">Status</label>
+              <select id="projeto-status" name="status" aria-required="true">
+                <option value="planejado">Planejado</option>
+                <option value="em-andamento">Em andamento</option>
+                <option value="concluido">Concluído</option>
+              </select>
+            </div>
+
+            <div class="form-grupo form-grupo--largo">
+              <label for="projeto-descricao">Descrição</label>
+              <textarea id="projeto-descricao" name="descricao" placeholder="Descreva brevemente o projeto..." maxlength="200" rows="2"></textarea>
+            </div>
+
+            <div class="form-grupo">
+              <label for="projeto-tecnologias">Tecnologias (separadas por vírgula)</label>
+              <input type="text" id="projeto-tecnologias" name="tecnologias" placeholder="Ex: HTML, CSS, JavaScript" maxlength="100" />
+            </div>
+
+            <div class="form-grupo">
+              <label for="projeto-progresso">Progresso (%)</label>
+              <input type="number" id="projeto-progresso" name="progresso" min="0" max="100" value="0" aria-label="Percentual de progresso, de 0 a 100" />
+            </div>
+
+          </div>
+
+          <button type="submit" id="btn-adicionar-projeto" class="btn btn-primario">+ Adicionar projeto</button>
+        </fieldset>
+      </form>
+
+    </section>
+
+
+    <!-- ========================================
+         6. ACESSIBILIDADE
+    ======================================== -->
+    <section id="acessibilidade" aria-labelledby="titulo-acessibilidade">
+
+      <div class="secao__cabecalho">
+        <span class="secao__tag">♿ Inclusão</span>
+        <h2 id="titulo-acessibilidade">Acessibilidade</h2>
+        <p class="secao__subtitulo">Este site foi desenvolvido com foco em acessibilidade digital e boas práticas WCAG.</p>
+      </div>
+
+      <ul class="acessibilidade-grid" aria-label="Recursos de acessibilidade implementados">
+        <li class="acessibilidade-item"><span aria-hidden="true">🎨</span><span>Contraste WCAG</span></li>
+        <li class="acessibilidade-item"><span aria-hidden="true">⌨️</span><span>Navegação por teclado</span></li>
+        <li class="acessibilidade-item"><span aria-hidden="true">🏗️</span><span>HTML semântico</span></li>
+        <li class="acessibilidade-item"><span aria-hidden="true">👁️</span><span>Focus visível</span></li>
+        <li class="acessibilidade-item"><span aria-hidden="true">🏷️</span><span>Labels e alt texts</span></li>
+        <li class="acessibilidade-item"><span aria-hidden="true">📱</span><span>Responsividade</span></li>
+      </ul>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+  ========================================== -->
+  <footer>
+    <p class="footer__logo">⚡ DevStart<span>Planner</span></p>
+    <p>Desenvolvido como projeto final de Desenvolvimento de Interfaces · 2025</p>
+    <p>HTML · CSS · JavaScript · UI/UX · Acessibilidade</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

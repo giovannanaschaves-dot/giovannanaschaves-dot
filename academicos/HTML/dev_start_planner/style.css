@@ -1,0 +1,1133 @@
+/* ================================================
+   DEVSTART PLANNER — style.css
+   Projeto Final de Desenvolvimento de Interfaces
+   ================================================
+
+   SUMÁRIO:
+   1.  Variáveis — Light Mode
+   2.  Variáveis — Dark Mode
+   3.  Reset e Base
+   4.  Acessibilidade
+   5.  Tipografia global
+   6.  Botões
+   7.  Cards
+   8.  Barras de progresso
+   9.  Formulários
+   10. Header / Navbar
+   11. Hero
+   12. Dashboard
+   13. Checklist
+   14. Roadmap
+   15. Projetos
+   16. Acessibilidade (seção)
+   17. Footer
+   18. Responsividade
+   ================================================ */
+
+
+/* ================================================
+   1. VARIÁVEIS — Light Mode
+   ================================================ */
+:root {
+  /* Cores */
+  --bg-principal:      #F5F7FA;
+  --bg-card:           #FFFFFF;
+  --texto-principal:   #1E1E2F;
+  --texto-secundario:  #5B6475;
+  --roxo:              #7C5CFC;
+  --roxo-hover:        #6847F5;
+  --laranja:           #FF8A3D;
+  --laranja-hover:     #F97316;
+  --borda:             #D6DCE5;
+  --verde:             #10B981;
+  --azul:              #60A5FA;
+  --rosa:              #F472B6;
+
+  /* Espaçamentos */
+  --esp-xs:  0.25rem;
+  --esp-sm:  0.5rem;
+  --esp-md:  1rem;
+  --esp-lg:  1.5rem;
+  --esp-xl:  2rem;
+  --esp-2xl: 3rem;
+  --esp-3xl: 4rem;
+
+  /* Tipografia */
+  --fonte-titulo: 'Sora', sans-serif;
+  --fonte-corpo:  'DM Sans', sans-serif;
+
+  /* Forma */
+  --r-sm:   6px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-pill: 999px;
+
+  /* Sombras */
+  --sombra:       0 2px 12px rgba(124, 92, 252, 0.08);
+  --sombra-hover: 0 8px 28px rgba(124, 92, 252, 0.18);
+
+  /* Transição global */
+  --t: 0.25s ease;
+
+  /* Layout */
+  --max-w: 1200px;
+}
+
+
+/* ================================================
+   2. VARIÁVEIS — Dark Mode
+   ================================================ */
+[data-tema="dark"] {
+  --bg-principal:      #0F1117;
+  --bg-card:           #1A1D26;
+  --texto-principal:   #F5F7FA;
+  --texto-secundario:  #B6BECC;
+  --roxo:              #9B87F5;
+  --roxo-hover:        #B29CFF;
+  --laranja:           #FF9F5A;
+  --laranja-hover:     #FFB26B;
+  --borda:             #2A3040;
+  --sombra:            0 2px 18px rgba(0, 0, 0, 0.4);
+  --sombra-hover:      0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ================================================
+   3. RESET E BASE
+   ================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  line-height: 1.6;
+  transition: background-color var(--t), color var(--t);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  color: var(--texto-principal);
+}
+
+a    { color: inherit; text-decoration: none; }
+ul   { list-style: none; }
+img  { max-width: 100%; display: block; }
+
+button, input, textarea, select {
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+}
+
+button { cursor: pointer; }
+
+
+/* ================================================
+   4. ACESSIBILIDADE
+   ================================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--esp-md);
+  background: var(--roxo);
+  color: #fff;
+  padding: var(--esp-sm) var(--esp-md);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; }
+
+/* Foco visível */
+:focus-visible {
+  outline: 3px solid var(--roxo);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Classe utilitária — visível só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ================================================
+   5. TIPOGRAFIA E SEÇÕES
+   ================================================ */
+section {
+  padding: var(--esp-3xl) var(--esp-lg);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.secao__cabecalho {
+  margin-bottom: var(--esp-xl);
+}
+
+.secao__tag {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--roxo);
+  background: rgba(124, 92, 252, 0.1);
+  padding: var(--esp-xs) var(--esp-sm);
+  border-radius: var(--r-pill);
+  margin-bottom: var(--esp-sm);
+}
+
+.secao__cabecalho h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: var(--esp-xs);
+}
+
+.secao__subtitulo {
+  color: var(--texto-secundario);
+  font-size: 1rem;
+  max-width: 560px;
+}
+
+
+/* ================================================
+   6. BOTÕES
+   ================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-sm);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--r-md);
+  border: none;
+  transition: background var(--t), box-shadow var(--t), transform 0.15s;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primario {
+  background: var(--roxo);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(124, 92, 252, 0.35);
+}
+.btn-primario:hover, .btn-primario:focus-visible {
+  background: var(--roxo-hover);
+  box-shadow: 0 6px 20px rgba(124, 92, 252, 0.45);
+}
+
+.btn-secundario {
+  background: transparent;
+  color: var(--roxo);
+  border: 2px solid var(--roxo);
+}
+.btn-secundario:hover, .btn-secundario:focus-visible {
+  background: var(--roxo);
+  color: #fff;
+}
+
+.btn-laranja {
+  background: var(--laranja);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 138, 61, 0.3);
+}
+.btn-laranja:hover, .btn-laranja:focus-visible {
+  background: var(--laranja-hover);
+}
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--r-sm);
+}
+
+.btn-perigo {
+  background: transparent;
+  color: #e53e3e;
+  border: 1.5px solid #e53e3e;
+  font-family: var(--fonte-titulo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--r-sm);
+  transition: background var(--t), color var(--t);
+}
+.btn-perigo:hover, .btn-perigo:focus-visible {
+  background: #e53e3e;
+  color: #fff;
+}
+
+
+/* ================================================
+   7. CARDS
+   ================================================ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-md);
+  padding: var(--esp-lg);
+  box-shadow: var(--sombra);
+  transition: background var(--t), border-color var(--t), box-shadow var(--t);
+}
+.card:hover { box-shadow: var(--sombra-hover); }
+
+.card__titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--esp-md);
+}
+
+.card__label {
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-sm);
+}
+
+.card__valor {
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--texto-principal);
+  line-height: 1;
+  margin-bottom: var(--esp-xs);
+}
+
+.card__sub {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+
+/* ================================================
+   8. BARRAS DE PROGRESSO
+   ================================================ */
+.barra-wrap {
+  margin-top: var(--esp-md);
+}
+
+.barra-wrap__cabecalho {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-sm);
+}
+
+.barra-trilha {
+  height: 10px;
+  background: var(--borda);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+
+.barra-trilha--sm { height: 6px; }
+
+.barra-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--r-pill);
+  transition: width 0.5s ease;
+}
+
+.barra-fill--gradiente {
+  background: linear-gradient(90deg, var(--roxo), var(--laranja));
+}
+
+
+/* ================================================
+   9. FORMULÁRIOS
+   ================================================ */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-xs);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.65rem var(--esp-md);
+  background: var(--bg-principal);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--r-md);
+  color: var(--texto-principal);
+  transition: border-color var(--t), background var(--t), box-shadow var(--t);
+  margin-bottom: var(--esp-md);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--texto-secundario);
+  opacity: 0.65;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.15);
+}
+
+textarea { resize: vertical; min-height: 70px; }
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath fill='%235B6475' d='M6 7L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--esp-md) center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+fieldset {
+  border: 1.5px solid var(--borda);
+  border-radius: var(--r-md);
+  padding: var(--esp-lg);
+  transition: border-color var(--t);
+}
+
+legend {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--roxo);
+  padding: 0 var(--esp-sm);
+}
+
+/* Mensagem de lista vazia */
+.msg-vazia {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: var(--esp-xl);
+  border: 2px dashed var(--borda);
+  border-radius: var(--r-md);
+  margin-bottom: var(--esp-lg);
+}
+
+
+/* ================================================
+   10. HEADER / NAVBAR
+   ================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--borda);
+  box-shadow: var(--sombra);
+  transition: background var(--t), border-color var(--t);
+}
+
+header nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--esp-lg);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-md);
+}
+
+.nav__logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--roxo);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav__logo span { color: var(--laranja); }
+
+.nav__links {
+  display: flex;
+  gap: var(--esp-xs);
+}
+
+.nav__links a {
+  font-family: var(--fonte-titulo);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-secundario);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--r-sm);
+  transition: background var(--t), color var(--t);
+}
+
+.nav__links a:hover,
+.nav__links a:focus-visible {
+  background: var(--bg-principal);
+  color: var(--roxo);
+}
+
+.nav__acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+  flex-shrink: 0;
+}
+
+#btn-tema {
+  background: var(--bg-principal);
+  border: 1.5px solid var(--borda);
+  color: var(--texto-principal);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--t), border-color var(--t), color var(--t);
+  flex-shrink: 0;
+}
+
+#btn-tema:hover, #btn-tema:focus-visible {
+  background: var(--roxo);
+  color: #fff;
+  border-color: var(--roxo);
+}
+
+
+/* ================================================
+   11. HERO
+   ================================================ */
+#home {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  background: var(--bg-principal);
+  padding: var(--esp-3xl) var(--esp-lg);
+  transition: background var(--t);
+  max-width: 100%;
+}
+
+.hero__conteudo {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__badge {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--laranja);
+  background: rgba(255, 138, 61, 0.1);
+  border: 1px solid rgba(255, 138, 61, 0.3);
+  padding: var(--esp-xs) var(--esp-md);
+  border-radius: var(--r-pill);
+  margin-bottom: var(--esp-lg);
+}
+
+#home h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  max-width: 680px;
+  margin-bottom: var(--esp-lg);
+}
+
+#home h1 em {
+  font-style: normal;
+  color: var(--roxo);
+}
+
+.hero__desc {
+  font-size: 1.05rem;
+  color: var(--texto-secundario);
+  max-width: 520px;
+  margin-bottom: var(--esp-xl);
+}
+
+.hero__acoes {
+  display: flex;
+  gap: var(--esp-md);
+  flex-wrap: wrap;
+}
+
+
+/* ================================================
+   12. DASHBOARD
+   ================================================ */
+#dashboard {
+  background: var(--bg-principal);
+  transition: background var(--t);
+  padding-top: var(--esp-3xl);
+  padding-bottom: var(--esp-3xl);
+  max-width: 100%;
+}
+
+#dashboard > * {
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--esp-lg);
+  padding-right: var(--esp-lg);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--esp-md);
+}
+
+.card-meta {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.card-stat { grid-column: span 1; }
+
+.card-resumo {
+  grid-column: 2 / 5;
+  grid-row: 2;
+}
+
+/* Ícone dos cards de stat */
+.card-stat__icone {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: var(--esp-md);
+}
+.card-stat__icone--roxo   { background: rgba(124, 92, 252, 0.12); }
+.card-stat__icone--laranja { background: rgba(255, 138, 61, 0.12); }
+.card-stat__icone--verde  { background: rgba(16, 185, 129, 0.12); }
+
+/* Meta salva */
+.meta__texto {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+  margin-bottom: var(--esp-xs);
+}
+
+.meta__prazo {
+  font-size: 0.875rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-md);
+}
+
+/* Resumo do roadmap no dashboard */
+#resumo-roadmap li {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-md);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+#resumo-roadmap li:last-child { border-bottom: none; }
+
+#resumo-roadmap li > span:first-child {
+  font-size: 0.875rem;
+  color: var(--texto-principal);
+  min-width: 160px;
+}
+
+.resumo-barra {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+  flex: 1;
+}
+
+.resumo-barra .barra-trilha { flex: 1; }
+
+.resumo-barra > span:last-child {
+  font-family: var(--fonte-titulo);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--roxo);
+  min-width: 36px;
+  text-align: right;
+}
+
+
+/* ================================================
+   13. CHECKLIST
+   ================================================ */
+#checklist {
+  background: var(--bg-card);
+  border-top: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+  transition: background var(--t);
+  max-width: 100%;
+  padding-top: var(--esp-3xl);
+  padding-bottom: var(--esp-3xl);
+}
+
+#checklist > * {
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--esp-lg);
+  padding-right: var(--esp-lg);
+}
+
+.checklist-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--esp-xl);
+  align-items: start;
+}
+
+/* Painel de progresso */
+.checklist-progresso {
+  position: sticky;
+  top: 80px;
+  background: var(--bg-principal);
+  border: 1px solid var(--borda);
+  transition: background var(--t);
+}
+
+.checklist-progresso__numero {
+  font-family: var(--fonte-titulo);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--roxo);
+  line-height: 1;
+  margin-bottom: var(--esp-md);
+}
+
+/* Lista de tarefas */
+#lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+  margin-bottom: var(--esp-md);
+}
+
+#lista-tarefas li {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+  padding: 0.75rem var(--esp-md);
+  background: var(--bg-principal);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--r-md);
+  transition: border-color var(--t), background var(--t);
+}
+
+#lista-tarefas li:hover { border-color: var(--roxo); }
+
+#lista-tarefas li.concluida { opacity: 0.6; }
+#lista-tarefas li.concluida label { text-decoration: line-through; color: var(--texto-secundario); }
+
+#lista-tarefas input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  accent-color: var(--roxo);
+  cursor: pointer;
+  margin: 0;
+}
+
+#lista-tarefas label {
+  font-size: 0.9rem;
+  color: var(--texto-principal);
+  cursor: pointer;
+  flex: 1;
+  margin: 0;
+}
+
+.badge-categoria {
+  font-family: var(--fonte-titulo);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--r-pill);
+  background: rgba(124, 92, 252, 0.1);
+  color: var(--roxo);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Formulário de nova tarefa */
+.form-nova-tarefa {
+  padding: var(--esp-md);
+  background: var(--bg-principal);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-md);
+  transition: background var(--t);
+}
+
+.form-nova-tarefa__linha {
+  display: flex;
+  gap: var(--esp-sm);
+  align-items: center;
+}
+
+.form-nova-tarefa__linha input,
+.form-nova-tarefa__linha select {
+  margin-bottom: 0;
+}
+
+.form-nova-tarefa__linha input { flex: 2; }
+.form-nova-tarefa__linha select { flex: 1; min-width: 120px; }
+
+
+/* ================================================
+   14. ROADMAP
+   ================================================ */
+#roadmap {
+  background: var(--bg-principal);
+  transition: background var(--t);
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--esp-md);
+}
+
+/* Borda colorida no topo de cada card */
+.roadmap-card { border-top: 4px solid var(--roxo); }
+.roadmap-card[data-area="poo"]        { border-top-color: var(--laranja); }
+.roadmap-card[data-area="interfaces"] { border-top-color: var(--verde); }
+.roadmap-card[data-area="banco"]      { border-top-color: var(--azul); }
+.roadmap-card[data-area="git"]        { border-top-color: var(--rosa); }
+
+.roadmap-card__titulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: var(--esp-xs);
+}
+
+.roadmap-card__progresso {
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-sm);
+}
+
+.roadmap-card__barra { margin-bottom: var(--esp-md); }
+
+/* Tópicos com checkbox */
+#roadmap ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#roadmap ul li {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-sm);
+}
+
+#roadmap ul li input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  accent-color: var(--roxo);
+  cursor: pointer;
+  margin: 0;
+}
+
+#roadmap ul li label {
+  font-size: 0.875rem;
+  color: var(--texto-secundario);
+  cursor: pointer;
+  margin: 0;
+  transition: color var(--t);
+}
+
+#roadmap ul li input[type="checkbox"]:checked + label {
+  color: var(--texto-principal);
+  font-weight: 500;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+
+/* ================================================
+   15. PROJETOS
+   ================================================ */
+#projetos {
+  background: var(--bg-card);
+  border-top: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+  transition: background var(--t);
+}
+
+#lista-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--esp-md);
+  margin-bottom: var(--esp-xl);
+}
+
+/* Card de projeto */
+.projeto-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-sm);
+}
+
+.projeto-card__topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--esp-sm);
+  margin-bottom: var(--esp-xs);
+}
+
+.projeto-card__topo h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Badges de status */
+.badge-status {
+  font-family: var(--fonte-titulo);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-status--planejado    { background: rgba(255, 138, 61, 0.12); color: var(--laranja); }
+.badge-status--em-andamento { background: rgba(124, 92, 252, 0.12); color: var(--roxo); }
+.badge-status--concluido    { background: rgba(16, 185, 129, 0.15); color: var(--verde); }
+
+.projeto-card__desc {
+  font-size: 0.875rem;
+  color: var(--texto-secundario);
+}
+
+/* Badges de tecnologias */
+.techs-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-xs);
+}
+
+.badge-tech {
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  background: var(--bg-principal);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-sm);
+  color: var(--texto-secundario);
+  transition: background var(--t);
+}
+
+.projeto-progresso-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-xs);
+}
+
+.projeto-card__acoes {
+  display: flex;
+  gap: var(--esp-sm);
+  margin-top: auto;
+  padding-top: var(--esp-sm);
+  border-top: 1px solid var(--borda);
+}
+
+/* Formulário de novo projeto */
+.form-projeto { margin-top: var(--esp-xl); }
+
+.form-projeto__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--esp-md);
+}
+
+.form-grupo { display: flex; flex-direction: column; }
+.form-grupo label { margin-bottom: var(--esp-xs); }
+.form-grupo input, .form-grupo select, .form-grupo textarea { margin-bottom: 0; }
+
+.form-grupo--largo { grid-column: span 2; }
+
+.form-projeto fieldset > .btn { margin-top: var(--esp-md); }
+
+
+/* ================================================
+   16. SEÇÃO ACESSIBILIDADE
+   ================================================ */
+#acessibilidade {
+  background: var(--bg-principal);
+  transition: background var(--t);
+}
+
+.acessibilidade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--esp-md);
+}
+
+.acessibilidade-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--esp-sm);
+  padding: var(--esp-lg) var(--esp-md);
+  background: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-md);
+  transition: box-shadow var(--t), background var(--t);
+}
+.acessibilidade-item:hover { box-shadow: var(--sombra-hover); }
+
+.acessibilidade-item span:first-child { font-size: 1.75rem; }
+
+.acessibilidade-item span:last-child {
+  font-family: var(--fonte-titulo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+}
+
+
+/* ================================================
+   17. FOOTER
+   ================================================ */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--borda);
+  padding: var(--esp-xl) var(--esp-lg);
+  text-align: center;
+  transition: background var(--t), border-color var(--t);
+}
+
+.footer__logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--roxo);
+  margin-bottom: var(--esp-sm);
+}
+
+.footer__logo span { color: var(--laranja); }
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-xs);
+}
+
+
+/* ================================================
+   18. RESPONSIVIDADE
+   ================================================ */
+
+/* Tablet — até 1024px */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card-meta  { grid-column: 1 / 4; grid-row: 1; }
+  .card-stat  { grid-column: span 1; }
+  .card-resumo { grid-column: 1 / 4; grid-row: auto; }
+}
+
+/* Tablet pequeno — até 768px */
+@media (max-width: 768px) {
+
+  section {
+    padding: var(--esp-2xl) var(--esp-md);
+  }
+
+  #home, #dashboard, #checklist, #projetos, #roadmap, #acessibilidade {
+    padding-left: var(--esp-md);
+    padding-right: var(--esp-md);
+  }
+
+  .nav__links { display: none; }
+
+  #home { text-align: center; }
+  .hero__desc { margin: 0 auto var(--esp-xl); }
+  .hero__acoes { justify-content: center; }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-meta   { grid-column: 1 / 3; }
+  .card-resumo { grid-column: 1 / 3; }
+
+  .checklist-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist-progresso { position: static; }
+
+  .form-projeto__grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grupo--largo { grid-column: span 1; }
+
+  #resumo-roadmap li > span:first-child { min-width: 120px; }
+}
+
+/* Mobile — até 480px */
+@media (max-width: 480px) {
+
+  header nav { padding: 0 var(--esp-md); }
+
+  .nav__logo { font-size: 1rem; }
+
+  #home h1 { font-size: 1.8rem; }
+
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .card-meta, .card-resumo { grid-column: 1; }
+
+  .roadmap-grid { grid-template-columns: 1fr; }
+
+  #lista-projetos { grid-template-columns: 1fr; }
+
+  .acessibilidade-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .form-nova-tarefa__linha { flex-direction: column; }
+  .form-nova-tarefa__linha select,
+  .form-nova-tarefa__linha .btn { width: 100%; }
+
+  .hero__acoes { flex-direction: column; }
+  .hero__acoes .btn { width: 100%; }
+}
